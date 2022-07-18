@@ -7,6 +7,7 @@ import {
     ContainerLogo,
     Logo,
     NavMenu,
+    NavItem,
 } from './styles';
 
 const Navbar: React.FC = () => {
@@ -17,11 +18,9 @@ const Navbar: React.FC = () => {
                 <h1>ALBERTO MEDEIROS</h1>
             </ContainerLogo>
             <NavMenu>
-                <ul>
-                    <li>ALUNO</li>
-                    <li>PROFESSOR</li>
-                    <li>SALA</li>
-                </ul>
+                <NavItem>ALUNO</NavItem>
+                <NavItem>PROFESSOR</NavItem>
+                <NavItem>SALA</NavItem>
             </NavMenu>
         </Container>
     )

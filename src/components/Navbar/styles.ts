@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100vw;
+    width: 100%;
     padding: 6px;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     background: #80ABFE;
 `;
 
@@ -20,35 +22,23 @@ export const Logo = styled.img`
 `;
 
 export const NavMenu = styled.div`
-    width: 35%;
-    padding: 10px;
+    width: 30%;
+    padding: 8px;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+`;
 
-    ul {
-        width: 100%;
-        
-        display: flex;
-        justify-content: space-evenly;
-        
-        list-style-type: none;
-        
-    }
+export const NavItem = styled.a`
+    padding: 4px;
+    flex-shrink: 0;
 
-    ul li:hover {
+    color: #000;
+    
+    &:hover {
         cursor: pointer;
-        
+        font-weight: 500;
         transform: scale(1.1);
-        transition: 200ms ease-out;
-    }
-
-    @media (max-width: 620px) {
-        width: 100%;
-    }
-
-    @media (max-width: 495px) {
-        display: none;
+        transition: 200ms ease-in-out;
     }
 `;
