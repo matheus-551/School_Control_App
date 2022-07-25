@@ -1,7 +1,8 @@
 import React from 'react';
 
+import AppRoutes from './AppRoutes';
+
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 
 import GlobalStyles from './styles/GlobalStyles';
 
@@ -9,7 +10,8 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      <AppRoutes/>
+      
       <GlobalStyles/>
     </>
   )

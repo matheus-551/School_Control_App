@@ -11,6 +11,8 @@ import {
   Button,
 } from './styles';
 
+import { Link } from 'react-router-dom';
+
 const Home: React.FC = () => {
     return (
       <Container>
@@ -19,9 +21,9 @@ const Home: React.FC = () => {
           <Title>Controle Escolar</Title>
 
           <GroupButton>
-            <Button>ALUNO</Button>
-            <Button>PROFESSOR</Button>
-            <Button>SALA</Button>
+            <Button><Link to="/student">ALUNO</Link></Button>
+            <Button><Link to="/teacher">PROFESSOR</Link></Button>
+            <Button><Link to="/classroom">SALA</Link></Button>
           </GroupButton>
         </GroupItems>
       </Container>

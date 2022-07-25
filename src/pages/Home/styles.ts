@@ -37,7 +37,7 @@ export const GroupButton = styled.div`
     justify-content: space-between;
 `;
 
-export const Button = styled.a`
+export const Button = styled.div`
     width: 300px;
     height: 80px;
 
@@ -50,8 +50,20 @@ export const Button = styled.a`
 
     box-shadow: 2px 2px 4px #000;
 
-    color: #fff;
     background: #1b181a;
+
+    > a {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-decoration: none;
+        
+        color: #fff;
+    }
 
     &:hover {
         transform: scale(1.1);
