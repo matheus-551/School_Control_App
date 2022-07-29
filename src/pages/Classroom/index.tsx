@@ -1,11 +1,67 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import {} from './styles';
+import {
+    Container,
+    GroupItems,
+    Button,
+    EditButton,
+} from './styles';
 
-const Classroom: React.FC = () => {
+import { Table } from '../../components/Table';
+import { Edit } from '@styled-icons/boxicons-solid/Edit';
+
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+interface TypeClassroom {
+    Classroom?: [{
+        id: number,
+        name: string 
+    }]
+}
+
+const Classroom: React.FC<TypeClassroom>= () => {
+    const [classrooms, setClassrooms] = useState<TypeClassroom>({} as TypeClassroom);
+    const URL = 'http://localhost:8080/api/classroom';
+
+    useEffect(() => {
+        axios.get(URL)
+        .then( response => {
+            setClassrooms(response.data);
+        }).catch( error => {
+            console.log(error);
+        })
+    }, []);
 
     return (
-        <h1>Sala de Aula</h1>
+       <Container>
+        <GroupItems>
+            <h1>SALA DE AULA</h1>
+            <Button><Link to="/register-classroom">NOVA SALA</Link></Button>
+        </GroupItems>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Nome da sala</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Object.entries(classrooms).map(([key, value]) =>{
+                    return (
+                        <tr key={key}>
+                            <td>{value.name}</td>
+                            <td>
+                                <EditButton>
+                                    <Link to="/">EDITAR <Edit width={25}/></Link>
+                                </EditButton>
+                            </td>
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </Table>
+       </Container>
     )
 }
 
