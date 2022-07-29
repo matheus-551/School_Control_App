@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
     Form,
@@ -7,7 +7,7 @@ import {
     Button,
 } from "../../../components/Form";
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const FormClassroom: React.FC = () => {
@@ -17,20 +17,47 @@ const FormClassroom: React.FC = () => {
     });
     
     const navigate = useNavigate();
+    const paramsURL = useParams();
     const URL = "http://localhost:8080/api/classroom";
     
+    useEffect(() => {
+        const params = paramsURL.id;
+
+        if(params) {
+            axios.get(`${URL}/${params}`)
+            .then( response => {
+                setClassroom({
+                    id: response.data.id,
+                    nameClassroom: response.data.name
+                })
+            }).catch( error => {
+                console.log(error.response.data);
+            })
+        }
+    }, [])
+
     const handleDataChange = (event: { target: { name: any; value: any; }; }) => {
         const name = event.target.name;
         const value = event.target.value;
         setClassroom(values => ({...values, [name]: value}));
     }
 
-    const sendClassroom = () => {
+    const saveClassroom = () => {
         axios.post(URL, {
             name: classroom.nameClassroom
         }).then( response => {
             navigate("/classroom");
-            console.log(response.data);
+        }).catch( error => {
+            console.log(error.response.data);
+        })
+    }
+
+    const updateClassroom = () => {
+        axios.put(`${URL}/${classroom.id}`, {
+            id: classroom.id,
+            name: classroom.nameClassroom
+        }).then( response => {
+            navigate("/classroom");
         }).catch( error => {
             console.log(error.response.data);
         })
@@ -40,7 +67,9 @@ const FormClassroom: React.FC = () => {
         <Form>
             <ContainerForm>
                 <HeaderForm>
-                    <h1>CADASTRO DE SALA</h1>                    
+                    {
+                        classroom.id == null ? <h1>CADASTRO DE SALA</h1> : <h1>EDITAR SALA</h1>                   
+                    }
                 </HeaderForm>
 
                 <hr/>
@@ -51,8 +80,13 @@ const FormClassroom: React.FC = () => {
                     value={classroom.nameClassroom}
                     onChange={handleDataChange} 
                     placeholder='Digite o nome da sala'/>
-
-                <Button onClick={sendClassroom}>Enviar</Button>
+                {
+                    classroom.id == null 
+                    ? 
+                    <Button onClick={saveClassroom}>Salvar nova sala</Button>
+                    :
+                    <Button onClick={updateClassroom}>Salvar alterações</Button>
+                }
             </ContainerForm>
         </Form>
     )

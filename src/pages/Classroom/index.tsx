@@ -53,7 +53,7 @@ const Classroom: React.FC<TypeClassroom>= () => {
                             <td>{value.name}</td>
                             <td>
                                 <EditButton>
-                                    <Link to="/">EDITAR <Edit width={25}/></Link>
+                                    <Link to={`/register-classroom/${value.id}`}>EDITAR <Edit width={25}/></Link>
                                 </EditButton>
                             </td>
                         </tr>

@@ -16,7 +16,9 @@ function AppRoutes() {
                 <Route path="/classroom" element={<Classroom/>}/>
                 <Route path="/student" element={<Student/>}/>
                 <Route path="/teacher" element={<Teacher/>}/>
-                <Route path="/register-classroom" element={<FormClassroom/>}/>
+                <Route path="/register-classroom" element={<FormClassroom/>}>
+                    <Route path="/register-classroom:id" element={<FormClassroom/>}/>
+                </Route>
             </Routes>
         </BrowserRouter>
     )
