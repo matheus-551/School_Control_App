@@ -33,6 +33,8 @@ export const NavItem = styled.a`
     padding: 4px;
     flex-shrink: 0;
 
+    font-weight: 600;
+    text-decoration: none;
     color: #000;
     
     &:hover {

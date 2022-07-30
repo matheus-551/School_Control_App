@@ -18,9 +18,10 @@ const Navbar: React.FC = () => {
                 <h1>ALBERTO MEDEIROS</h1>
             </ContainerLogo>
             <NavMenu>
-                <NavItem>ALUNO</NavItem>
-                <NavItem>PROFESSOR</NavItem>
-                <NavItem>SALA</NavItem>
+                <NavItem href="/">Home</NavItem>
+                <NavItem href="/student">Aluno</NavItem>
+                <NavItem href="/teacher">Professor</NavItem>
+                <NavItem href="/classroom">Sala de aula</NavItem>
             </NavMenu>
         </Container>
     )
