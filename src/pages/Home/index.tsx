@@ -23,7 +23,7 @@ const Home: React.FC = () => {
           <GroupButton>
             <Button><Link to="/student">ALUNO</Link></Button>
             <Button><Link to="/teacher">PROFESSOR</Link></Button>
-            <Button><Link to="/classroom">SALA</Link></Button>
+            <Button><Link to="/classroom">SALA DE AULA</Link></Button>
           </GroupButton>
         </GroupItems>
       </Container>
