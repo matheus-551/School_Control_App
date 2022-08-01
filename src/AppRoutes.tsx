@@ -8,6 +8,7 @@ import Teacher from './pages/Teacher';
 
 import FormClassroom from './pages/Forms/FormClassroom';
 import FormTeacher from './pages/Forms/FormTeacher';
+import FormStudent from './pages/Forms/FormStudent';
 
 function AppRoutes() {
     return (
@@ -22,6 +23,9 @@ function AppRoutes() {
                 </Route>
                 <Route path="/register-teacher" element={<FormTeacher/>}>
                     <Route path="/register-teacher:id" element={<FormTeacher/>}/>
+                </Route>
+                <Route path="/register-student" element={<FormStudent/>}>
+                    <Route path="/register-student:id" element={<FormStudent/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
