@@ -7,6 +7,8 @@ import {
     Button,
 } from '../../../components/Form';
 
+import { SuccessMessage, ErrorMessage } from '../../../components/Alert';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -70,18 +72,20 @@ const FormStudent: React.FC = () => {
     const sendStudent = () => {
         axios.post(URL, student)
         .then( response => {
+            SuccessMessage("Aluno salvo com sucesso");
             navigate("/student")
         }).catch( error => {
-            console.log(error.response.data);
+            ErrorMessage(error.response.data);
         })
     }
 
     const updateStudent = () => {
         axios.put(`${URL}/${student.id}`, student)
         .then( response => {
+            SuccessMessage("Alterações salvas com sucesso");
             navigate("/student");
         }).catch( error => {
-            console.log(error.response.data)
+            ErrorMessage(error.response.data)
         })
     }
 

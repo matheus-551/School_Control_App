@@ -7,6 +7,8 @@ import {
     Button,
 } from "../../../components/Form";
 
+import { SuccessMessage, ErrorMessage } from '../../../components/Alert';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -46,9 +48,10 @@ const FormClassroom: React.FC = () => {
         axios.post(URL, {
             name: classroom.nameClassroom
         }).then( response => {
+            SuccessMessage("Sala salva com sucesso");
             navigate("/classroom");
         }).catch( error => {
-            console.log(error.response.data);
+            ErrorMessage(error.response.data);
         })
     }
 
@@ -57,9 +60,10 @@ const FormClassroom: React.FC = () => {
             id: classroom.id,
             name: classroom.nameClassroom
         }).then( response => {
+            SuccessMessage("Alterações salva com sucesso");
             navigate("/classroom");
         }).catch( error => {
-            console.log(error.response.data);
+            ErrorMessage(error.response.data);
         })
     }
 
