@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import {
     Container,
     GroupItems,
-    Button,
     EditButton,
 } from './styles';
 
+import Button from '../../components/Button';
 import { Table } from '../../components/Table';
 import { Edit } from '@styled-icons/boxicons-solid/Edit';
 
@@ -37,7 +37,7 @@ const Classroom: React.FC<TypeClassroom>= () => {
        <Container>
         <GroupItems>
             <h1>SALA DE AULA</h1>
-            <Button><Link to="/register-classroom">NOVA SALA</Link></Button>
+            <Button Title="NOVA SALA" Href="/register-classroom"/>
         </GroupItems>
         <Table>
             <thead>

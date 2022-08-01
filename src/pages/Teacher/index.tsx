@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import {
     Container,
     GroupItems,
-    Button,
     EditButton,
 } from './styles';
 
+import Button from '../../components/Button';
 import { Table } from '../../components/Table';
 import { Edit } from '@styled-icons/boxicons-solid/Edit';
 
@@ -38,7 +38,7 @@ const Teacher: React.FC = () => {
         <Container>
             <GroupItems>
                 <h1>PROFESSORES</h1>
-                <Button><Link to="/register-teacher">NOVO PROFESSOR</Link></Button>
+                <Button Title="NOVO PROFESSOR" Href="/register-teacher"/>
             </GroupItems>
             <Table>
                 <thead>

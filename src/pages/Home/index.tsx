@@ -8,10 +8,9 @@ import {
   GroupItems,
   Title,
   GroupButton,
-  Button,
 } from './styles';
 
-import { Link } from 'react-router-dom';
+import Button from '../../components/Button';
 
 const Home: React.FC = () => {
     return (
@@ -21,9 +20,9 @@ const Home: React.FC = () => {
           <Title>Controle Escolar</Title>
 
           <GroupButton>
-            <Button><Link to="/student">ALUNO</Link></Button>
-            <Button><Link to="/teacher">PROFESSOR</Link></Button>
-            <Button><Link to="/classroom">SALA DE AULA</Link></Button>
+            <Button Title="ALUNO" Href="/student"/>
+            <Button Title="PROFESSOR" Href="/teacher"/>
+            <Button Title="SALA DE AULA" Href="/classroom"/>
           </GroupButton>
         </GroupItems>
       </Container>
