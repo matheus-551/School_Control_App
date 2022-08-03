@@ -9,6 +9,10 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 500px) {
+        padding: 10px 6px;
+    }
 `;
 
 export const GroupItems = styled.div`
@@ -18,6 +22,17 @@ export const GroupItems = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 900px) {
+        h1 {
+            font-size: 24px;
+            padding: 8px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
 `;
 
 export const EditButton = styled.span`

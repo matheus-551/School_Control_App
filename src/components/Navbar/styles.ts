@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { MenuOutline } from '@styled-icons/evaicons-outline/MenuOutline';
+
 export const Container = styled.div`
     width: 100%;
     padding: 6px;
@@ -14,6 +16,12 @@ export const Container = styled.div`
 export const ContainerLogo = styled.div`
     display: flex;
     align-items: center;
+
+    @media (max-width: 500px) {
+        h1 { 
+            font-size: 24px;
+        }
+    }
 `;
 
 export const Logo = styled.img`
@@ -27,6 +35,10 @@ export const NavMenu = styled.div`
 
     display: flex;
     justify-content: space-around;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const NavItem = styled.a`
@@ -42,5 +54,16 @@ export const NavItem = styled.a`
         font-weight: 500;
         transform: scale(1.1);
         transition: 200ms ease-in-out;
+    }
+`;
+
+export const MenuButton = styled(MenuOutline)`
+    width: 45px;
+
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 900px) {
+        display: block;
     }
 `;

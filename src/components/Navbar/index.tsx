@@ -8,6 +8,7 @@ import {
     Logo,
     NavMenu,
     NavItem,
+    MenuButton,
 } from './styles';
 
 const Navbar: React.FC = () => {
@@ -23,6 +24,8 @@ const Navbar: React.FC = () => {
                 <NavItem href="/teacher">Professor</NavItem>
                 <NavItem href="/classroom">Sala de aula</NavItem>
             </NavMenu>
+
+            <MenuButton/>            
         </Container>
     )
 }

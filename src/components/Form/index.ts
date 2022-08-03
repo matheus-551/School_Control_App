@@ -39,7 +39,13 @@ export const ContainerForm = styled.div`
 
 export const HeaderForm = styled.div`
     width: 100%;
-    padding: 2px;
+    padding: 2px;   
+
+    @media (max-width: 900px) {
+        h1 {
+            font-size: 24px;
+        }
+    }
 `;
 
 export const Button = styled.a`

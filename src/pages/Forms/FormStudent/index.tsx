@@ -7,7 +7,7 @@ import {
     Button,
 } from '../../../components/Form';
 
-import { SuccessMessage, ErrorMessage } from '../../../components/Alert';
+import { SuccessMessage, ErrorMessage } from '../../../components/Toast';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';

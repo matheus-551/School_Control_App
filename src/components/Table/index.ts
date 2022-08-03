@@ -19,4 +19,9 @@ export const Table = styled.table`
         padding-bottom: 12px;
         text-align: left;
     }
+
+    & .emptyColumn {
+        color: #f2f2f2;
+        background: #e32636;
+    }
 `;

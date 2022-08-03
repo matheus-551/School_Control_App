@@ -57,7 +57,7 @@ const Teacher: React.FC = () => {
                                     {
                                         value.classroom == null
                                         ?
-                                        <td>Nenhuma sala resgistrada</td>
+                                        <td className='emptyColumn'>Nenhuma sala resgistrada</td>
                                         :
                                         <td>{value.classroom.name}</td>
                                     }

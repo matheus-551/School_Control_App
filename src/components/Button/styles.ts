@@ -30,4 +30,11 @@ export const Container = styled.div`
         cursor: pointer;
         color: #292427;
     }
+
+    @media (max-width: 500px) {
+        width: 100%;
+        height: 10vh;
+
+        border-radius: 2%;
+    }
 `;

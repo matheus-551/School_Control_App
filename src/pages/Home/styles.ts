@@ -7,11 +7,23 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
 `;
 
 export const ImageHome = styled.img`
     src: url(${props => props.src});
     width: 40%;
+
+    @media (max-width: 900px) {
+        width: 60%;
+    }
+
+    @media (max-width: 500px) {
+        width: 80%;
+    }
 `;
 
 export const GroupItems = styled.div`
@@ -22,6 +34,12 @@ export const GroupItems = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 900px) {
+        width: 100%;
+
+        justify-content: space-evenly;
+    }
 `;
 
 export const Title = styled.h1`
@@ -35,4 +53,13 @@ export const GroupButton = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+    }
+
+    @media (max-width: 500px) {
+        justify-content: space-around;
+    }
 `;
