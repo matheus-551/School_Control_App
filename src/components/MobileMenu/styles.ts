@@ -15,8 +15,8 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    color: #111;
-    background: #fff;
+    color: var(--black);
+    background: var(--primary);
     
     opacity: 1;
 
@@ -44,11 +44,21 @@ export const Nav = styled.div`
 `;
 
 export const NavItem = styled.a`
+    width: 80%;
+    padding: 10px 16px;
+
+    text-align: center;
     text-decoration: none;
-    color: #111;
+    
+    border-radius: 15px;
+
+    color: var(--black);
 
     &:hover {
         font-weight: 500;
+
+        background: var(--gray-300);
+
         transform: scale(1.1);
         transition: 200ms ease-in-out;
     }

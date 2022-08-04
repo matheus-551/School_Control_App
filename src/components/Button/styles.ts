@@ -11,7 +11,7 @@ export const Container = styled.div`
     border: none;
     border-radius: 4%;
 
-    background: #1b181a;
+    background: var(--dark-gray-100);
 
     > a {
         width: 100%;
@@ -23,12 +23,12 @@ export const Container = styled.div`
 
         text-decoration: none;
 
-        color: #fff;
+        color: var(--white);
     }
 
     &:hover {
         cursor: pointer;
-        color: #292427;
+        color: var(--dark-gray-200);
     }
 
     @media (max-width: 500px) {

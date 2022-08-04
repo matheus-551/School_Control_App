@@ -11,7 +11,7 @@ export const Table = styled.table`
     }
 
     & tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: var(--gray-300);
     }
 
     & th {
@@ -21,7 +21,7 @@ export const Table = styled.table`
     }
 
     & .emptyColumn {
-        color: #f2f2f2;
+        color: var(--white);
         background: #e32636;
     }
 `;

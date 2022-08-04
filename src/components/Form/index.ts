@@ -22,16 +22,16 @@ export const ContainerForm = styled.div`
         display: inline-block;
         
         border: none;
-        background: #f1f1f1;
+        background: var(--white);
 
         &:focus {
-            background: #ddd;
+            background: var(--gray-300);
             outline: none;
         }
     }
 
     > hr {
-        border: 1px solid #f1f1f1;
+        border: 1px solid var(--gray-500);
         margin-top: 10px;
         margin-bottom: 25px;
     }
@@ -59,8 +59,8 @@ export const Button = styled.a`
     text-align: center;
 
     opacity: 0.9;
-    color: #ffffff;
-    background: #04AA6D;
+    color: var(--white);
+    background: var(--green-300);
 
     &:hover {
         opacity: 1;

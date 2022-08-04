@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    background: #80ABFE;
+    background: var(--blue-400);
 `;
 
 export const ContainerLogo = styled.div`
@@ -47,7 +47,7 @@ export const NavItem = styled.a`
 
     font-weight: 600;
     text-decoration: none;
-    color: #000;
+    color: var(--black);
     
     &:hover {
         cursor: pointer;
