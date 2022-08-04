@@ -10,7 +10,8 @@ import {
 import { SuccessMessage, ErrorMessage } from '../../../components/Toast';
 
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+import StudentService from '../../../services/StudentService';
+import TeacherService from '../../../services/TeacherService';
 
 const FormStudent: React.FC = () => {
     const [teachers, setTeachers] = useState([{
@@ -27,11 +28,12 @@ const FormStudent: React.FC = () => {
 
     const navigate = useNavigate();
     const paramsURL = useParams();
-    const URL = 'http://localhost:8080/api/student';
+    
+    const studentService = new StudentService();
+    const teacherService = new TeacherService();
 
     useEffect(() => {
-        const URLTeachar = 'http://localhost:8080/api/teacher';
-        axios.get(URLTeachar)
+        teacherService.list()
         .then( response => {
             setTeachers(response.data);
         }).catch( error => {
@@ -43,7 +45,7 @@ const FormStudent: React.FC = () => {
         const params = paramsURL.id;
 
         if(params) {
-            axios.get(`${URL}/${params}`)
+            studentService.findStudentById(params)
             .then( response => {
                 let Student = response.data;
 
@@ -70,7 +72,7 @@ const FormStudent: React.FC = () => {
     }
 
     const sendStudent = () => {
-        axios.post(URL, student)
+        studentService.save(student)
         .then( response => {
             SuccessMessage("Aluno salvo com sucesso");
             navigate("/student")
@@ -80,7 +82,8 @@ const FormStudent: React.FC = () => {
     }
 
     const updateStudent = () => {
-        axios.put(`${URL}/${student.id}`, student)
+        let idStudent = student.id as unknown as number;
+        studentService.updateStudent(idStudent, student)
         .then( response => {
             SuccessMessage("Alterações salvas com sucesso");
             navigate("/student");

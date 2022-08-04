@@ -11,7 +11,8 @@ import { Table } from '../../components/Table';
 import { Edit } from '@styled-icons/boxicons-solid/Edit';
 
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
+import ClassroomService from '../../services/ClassroomService';
 
 interface TypeClassroom {
     Classroom?: [{
@@ -22,10 +23,11 @@ interface TypeClassroom {
 
 const Classroom: React.FC<TypeClassroom>= () => {
     const [classrooms, setClassrooms] = useState<TypeClassroom>({} as TypeClassroom);
-    const URL = 'http://localhost:8080/api/classroom';
+
+    const classroomService = new ClassroomService();
 
     useEffect(() => {
-        axios.get(URL)
+        classroomService.list()
         .then( response => {
             setClassrooms(response.data);
         }).catch( error => {

@@ -11,7 +11,7 @@ import { Table } from '../../components/Table';
 import { Edit } from '@styled-icons/boxicons-solid/Edit';
 
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import StudentService from '../../services/StudentService';
 
 interface TypeStudent {
     students: [{
@@ -23,10 +23,10 @@ interface TypeStudent {
 
 const Student: React.FC = () => {
     const [students, setStudents] = useState<TypeStudent>({} as TypeStudent);
-    const URL = 'http://localhost:8080/api/student';
+    const studentService = new StudentService();
 
     useEffect(() => {
-        axios.get(URL)
+        studentService.list()
         .then( response => {
             setStudents(response.data);
         }).catch( error => {

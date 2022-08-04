@@ -11,10 +11,10 @@ import { Table } from '../../components/Table';
 import { Edit } from '@styled-icons/boxicons-solid/Edit';
 
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import TeacherService from '../../services/TeacherService';
 
 interface TypeTeacher {
-    teachers ?: [{
+    teachers: [{
         id: number,
         name: string,
         classroom: {} | null
@@ -23,10 +23,10 @@ interface TypeTeacher {
 
 const Teacher: React.FC = () => {
     const [teacher, setTeacher] = useState<TypeTeacher>({} as TypeTeacher);
-    const URL = 'http://localhost:8080/api/teacher';
+    const teacherService = new TeacherService();
 
     useEffect(() => {
-        axios.get(URL)
+        teacherService.list()
         .then( response => {
             setTeacher(response.data);
         }).catch( error => {

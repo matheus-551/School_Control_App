@@ -10,7 +10,8 @@ import {
 import { SuccessMessage, ErrorMessage } from '../../../components/Toast';
 
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+
+import ClassroomService from '../../../services/ClassroomService';
 
 const FormClassroom: React.FC = () => {
     const [classroom, setClassroom] = useState({
@@ -20,13 +21,14 @@ const FormClassroom: React.FC = () => {
     
     const navigate = useNavigate();
     const paramsURL = useParams();
-    const URL = "http://localhost:8080/api/classroom";
+
+    const classroomService = new ClassroomService();
     
     useEffect(() => {
         const params = paramsURL.id;
 
         if(params) {
-            axios.get(`${URL}/${params}`)
+            classroomService.findClassroomByid(params)
             .then( response => {
                 setClassroom({
                     id: response.data.id,
@@ -45,9 +47,12 @@ const FormClassroom: React.FC = () => {
     }
 
     const saveClassroom = () => {
-        axios.post(URL, {
+        const classroomObj = {
+            id: classroom.id || null,
             name: classroom.nameClassroom
-        }).then( response => {
+        }
+        
+        classroomService.save(classroomObj).then( response => {
             SuccessMessage("Sala salva com sucesso");
             navigate("/classroom");
         }).catch( error => {
@@ -56,10 +61,13 @@ const FormClassroom: React.FC = () => {
     }
 
     const updateClassroom = () => {
-        axios.put(`${URL}/${classroom.id}`, {
-            id: classroom.id,
+        const classroomObj = {
+            id: classroom.id as unknown as number,
             name: classroom.nameClassroom
-        }).then( response => {
+        }
+
+        classroomService.updateClassroom(classroomObj.id, classroomObj)
+        .then( response => {
             SuccessMessage("Alterações salva com sucesso");
             navigate("/classroom");
         }).catch( error => {
