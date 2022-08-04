@@ -44,6 +44,10 @@ export const GroupItems = styled.div`
 
 export const Title = styled.h1`
     padding: 10px;
+
+    @media (max-width: 500px) {
+        padding: 8px
+    }
 `;
 
 export const GroupButton = styled.div`

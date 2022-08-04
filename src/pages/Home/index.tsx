@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       <Container>
         <ImageHome src={homeImage}/>
         <GroupItems>
-          <Title>Controle Escolar</Title>
+          <Title>CONTROLE ESCOLAR</Title>
 
           <GroupButton>
             <Button Title="ALUNO" Href="/student"/>

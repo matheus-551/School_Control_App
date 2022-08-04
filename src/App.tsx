@@ -1,16 +1,13 @@
 import React from 'react';
 
-import AppRoutes from './AppRoutes';
-
-import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 
 import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <AppRoutes/>
+      <Layout/>
       
       <GlobalStyles/>
     </>

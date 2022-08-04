@@ -11,7 +11,11 @@ import {
     MenuButton,
 } from './styles';
 
-const Navbar: React.FC = () => {
+interface TypeProps {
+    setMenuIsVisible: Function
+}
+
+const Navbar: React.FC<TypeProps> = ({ setMenuIsVisible }) => {    
     return (
         <Container>        
             <ContainerLogo>
@@ -25,7 +29,7 @@ const Navbar: React.FC = () => {
                 <NavItem href="/classroom">Sala de aula</NavItem>
             </NavMenu>
 
-            <MenuButton/>            
+            <MenuButton onClick={() => setMenuIsVisible(true)}/>
         </Container>
     )
 }

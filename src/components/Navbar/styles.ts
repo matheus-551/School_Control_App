@@ -17,7 +17,7 @@ export const ContainerLogo = styled.div`
     display: flex;
     align-items: center;
 
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
         h1 { 
             font-size: 24px;
         }
@@ -57,9 +57,10 @@ export const NavItem = styled.a`
     }
 `;
 
+
 export const MenuButton = styled(MenuOutline)`
     width: 45px;
-
+    
     cursor: pointer;
     display: none;
 
